@@ -4,8 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IBĒ · Pizza & Parrilla — Montevideo</title>
-<meta name="description" content="IBĒ Pizza & Parrilla en Montevideo. Pizzetas, milanesas, hamburguesas caseras, pastas, parrilla y más. Reservá por WhatsApp.">
+<meta name="description" content="IBĒ Pizza & Parrilla en Montevideo. Pizzetas al molde, milanesas, hamburguesas caseras, pastas y asado a la parrilla. Reservá y pedí por WhatsApp.">
 <link rel="icon" type="image/png" href="logo_IBE.png">
+<!-- Open Graph / compartir -->
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="IBĒ · Pizza & Parrilla — Montevideo">
+<meta property="og:description" content="Pizzetas al molde, milanesas que no entran en el plato, hamburguesas caseras y asado a la parrilla. Reservá por WhatsApp.">
+<meta property="og:image" content="https://varelidisg-max.github.io/ibe-pizza-parrilla/banner_IBE.jpeg">
+<meta property="og:url" content="https://varelidisg-max.github.io/ibe-pizza-parrilla/">
+<meta property="og:locale" content="es_UY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IBĒ · Pizza & Parrilla — Montevideo">
+<meta name="twitter:description" content="Pizzetas, milanesas, hamburguesas caseras y parrilla. Reservá por WhatsApp.">
+<meta name="twitter:image" content="https://varelidisg-max.github.io/ibe-pizza-parrilla/banner_IBE.jpeg">
+<meta name="theme-color" content="#0c0b0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -71,7 +83,7 @@ header.nav{
 .hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 4px rgba(255,90,31,.25)}
 .hero h1{font-size:clamp(3.4rem,11vw,7.4rem);letter-spacing:.04em;text-shadow:0 8px 40px rgba(0,0,0,.5)}
 .hero h1 span{color:var(--ember)}
-.hero .sub{font-family:'Oswald';font-weight:300;letter-spacing:.42em;text-transform:uppercase;color:var(--ember2);font-size:clamp(.8rem,2.5vw,1.15rem);margin-top:6px}
+.hero .sub{font-family:'Oswald';font-weight:400;letter-spacing:.26em;text-transform:uppercase;color:var(--ember2);font-size:clamp(.92rem,2.5vw,1.15rem);margin-top:8px}
 .hero p.lead{max-width:540px;margin-top:20px;color:#eadfd4;font-size:1.06rem}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:800;font-size:.98rem;transition:.2s;cursor:pointer;border:none}
@@ -86,6 +98,7 @@ header.nav{
 /* ---------- STRIP ---------- */
 .strip{background:linear-gradient(90deg,var(--ember),var(--gold));color:#180a02;font-family:'Oswald';text-transform:uppercase;letter-spacing:.18em;font-weight:600;font-size:.82rem;overflow:hidden;white-space:nowrap}
 .strip .track{display:inline-block;padding:12px 0;animation:marquee 26s linear infinite}
+.strip:hover .track,.strip:focus-within .track{animation-play-state:paused}
 .strip span{padding:0 26px}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
@@ -109,17 +122,20 @@ section{padding:74px 0}
 .cat-title{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;padding-bottom:14px;border-bottom:1px solid var(--line)}
 .cat-title h3{font-size:clamp(1.5rem,4.5vw,2.1rem);color:var(--text)}
 .cat-title .kicker{font-family:'Oswald';font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ember2)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
-.item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;transition:.22s;position:relative;overflow:hidden}
-.item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(var(--ember),var(--gold));transform:scaleY(0);transform-origin:top;transition:.25s}
-.item:hover{border-color:#3a322c;background:var(--card2);transform:translateY(-3px)}
-.item:hover::before{transform:scaleY(1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(258px,1fr));gap:16px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;transition:border-color .2s,background .2s,transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.item:hover{border-color:var(--ember);background:var(--card2);transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.35)}
+/* Plato estrella: rompe la monotonia de la grilla */
+.item.featured{background:linear-gradient(150deg,#221812,#191411);border-color:rgba(255,138,61,.45)}
+.item.featured .item-name{color:var(--ember2)}
+.item.featured::after{content:"★ Recomendado";position:absolute;top:14px;right:16px;font-family:'Oswald';letter-spacing:.12em;text-transform:uppercase;font-size:.58rem;color:var(--gold)}
+.item.featured .item-top{margin-top:14px}
 .item-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
 .item-name{font-family:'Oswald';font-weight:600;font-size:1.08rem;letter-spacing:.01em;text-transform:uppercase;line-height:1.2}
 .item-price{font-family:'Anton';font-size:1.28rem;color:var(--ember2);white-space:nowrap}
 .item-price small{font-size:.62em;color:var(--muted);font-family:'Manrope';margin-right:1px}
 .item-desc{color:var(--muted);font-size:.92rem;line-height:1.5}
-.tag{align-self:flex-start;margin-top:4px;font-family:'Oswald';letter-spacing:.14em;text-transform:uppercase;font-size:.62rem;color:var(--gold);border:1px solid rgba(232,178,58,.4);padding:3px 9px;border-radius:999px}
+.tag{align-self:flex-start;margin-top:4px;font-family:'Oswald';letter-spacing:.12em;text-transform:uppercase;font-size:.74rem;color:var(--gold);border:1px solid rgba(232,178,58,.4);padding:3px 10px;border-radius:999px}
 
 /* ---------- PHOTOS CTA ---------- */
 .photos{background:linear-gradient(120deg,#1c1512,#241a14);border:1px solid var(--line);border-radius:22px;padding:40px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;margin-top:40px}
@@ -159,6 +175,8 @@ section{padding:74px 0}
 .ci-ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#bc1888);color:#fff}
 .ci-mail{background:rgba(255,90,31,.15);color:var(--ember2)}
 .ci-map{background:rgba(232,178,58,.15);color:var(--gold)}
+.ci-phone{background:rgba(255,138,61,.15);color:var(--ember2)}
+.cat-note{color:var(--muted);font-size:.92rem;line-height:1.55;margin:-8px 0 22px;max-width:660px}
 
 /* ---------- FINAL CTA ---------- */
 .finalcta{position:relative;text-align:center;padding:90px 22px;background:linear-gradient(180deg,var(--bg),#160f0b)}
@@ -194,6 +212,22 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
   .photos{padding:28px}
   .panel{padding:22px}
 }
+
+/* Foco visible para navegación por teclado */
+a:focus-visible,button:focus-visible,label:focus-visible,input:focus-visible{
+  outline:3px solid var(--ember2);
+  outline-offset:3px;
+  border-radius:6px;
+}
+.item:focus-within{border-color:var(--ember)}
+
+/* Respeta la preferencia de menos movimiento (WCAG 2.2.2) */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  html{scroll-behavior:auto}
+  .strip .track{animation:none;white-space:normal}
+  .fab{animation:none;box-shadow:0 10px 30px rgba(37,211,102,.4)}
+}
 </style>
 </head>
 <body>
@@ -217,7 +251,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 </header>
 
 <div class="mmenu" id="mmenu">
-  <a href="#top" class="close" id="mClose" aria-label="Cerrar">✕</a>
+  <a href="#top" class="close" id="mClose" aria-label="Cerrar menú" onclick="event.preventDefault();history.pushState(null,'',location.pathname+location.search);">✕</a>
   <a href="#menu">Menú</a>
   <a href="#promos">Promos</a>
   <a href="#info">Horarios</a>
@@ -246,7 +280,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 </section>
 
 <!-- STRIP -->
-<div class="strip"><div class="track">
+<div class="strip" aria-hidden="true"><div class="track">
   <span>🔥 Pizzetas al molde</span><span>· Milanesas del IBĒ</span><span>· Hamburguesas caseras</span><span>· Asado a la parrilla</span><span>· Pastas caseras</span><span>· Delivery &amp; Reservas</span>
   <span>🔥 Pizzetas al molde</span><span>· Milanesas del IBĒ</span><span>· Hamburguesas caseras</span><span>· Asado a la parrilla</span><span>· Pastas caseras</span><span>· Delivery &amp; Reservas</span>
 </div></div>
@@ -278,12 +312,11 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 
     <!-- PROMOS -->
     <div class="cat-block" id="promos">
-      <div class="cat-title"><h3>Promos</h3><span class="kicker">Para compartir</span></div>
+      <div class="cat-title"><h3>Promos</h3></div>
       <div class="grid">
-        <div class="item">
+        <div class="item featured">
           <div class="item-top"><span class="item-name">Promo Amigos</span><span class="item-price"><small>$</small>990</span></div>
-          <p class="item-desc">Metro de muzza + refresco 1.5 lt (Línea Pepsi).</p>
-          <span class="tag">La más pedida</span>
+          <p class="item-desc">Metro de muzza + refresco 1.5 lt (Línea Pepsi). La más pedida para compartir.</p>
         </div>
         <div class="item">
           <div class="item-top"><span class="item-name">Promo 1 Metro de Muzza</span><span class="item-price"><small>$</small>750</span></div>
@@ -300,7 +333,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
     <div class="cat-block" id="pizzetas">
       <div class="cat-title"><h3>Pizzetas IBĒ</h3><span class="kicker">Al molde</span></div>
       <div class="grid">
-        <div class="item">
+        <div class="item featured">
           <div class="item-top"><span class="item-name">Pizzeta XL IBĒ</span><span class="item-price"><small>$</small>790</span></div>
           <p class="item-desc">Pizzeta de 30 cm con 4 huevos fritos, cheddar, muzzarella, panceta y papas fritas.</p>
         </div>
@@ -318,7 +351,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 
     <!-- PORCIONES -->
     <div class="cat-block" id="porciones">
-      <div class="cat-title"><h3>Pizzería al corte</h3><span class="kicker">Por porción</span></div>
+      <div class="cat-title"><h3>Pizzería al corte</h3></div>
       <div class="grid">
         <div class="item"><div class="item-top"><span class="item-name">Pizza</span><span class="item-price"><small>$</small>150</span></div><p class="item-desc">Porción de pizza a la muzzarella.</p></div>
         <div class="item"><div class="item-top"><span class="item-name">Fainá</span><span class="item-price"><small>$</small>150</span></div><p class="item-desc">Clásica fainá de garbanzo bien crocante.</p></div>
@@ -328,12 +361,11 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 
     <!-- MILANESAS -->
     <div class="cat-block" id="milanesas">
-      <div class="cat-title"><h3>Milanesas del IBĒ</h3><span class="kicker">Caseras</span></div>
+      <div class="cat-title"><h3>Milanesas del IBĒ</h3></div>
       <div class="grid">
-        <div class="item">
+        <div class="item featured">
           <div class="item-top"><span class="item-name">Mila IBĒ Completa</span><span class="item-price"><small>$</small>750</span></div>
           <p class="item-desc">2 huevos fritos, jamón, panceta, muzza, morrón, aceituna, lechuga, tomate, papas fritas y mayonesa.</p>
-          <span class="tag">Recomendada</span>
         </div>
         <div class="item">
           <div class="item-top"><span class="item-name">Napolitana x2</span><span class="item-price"><small>$</small>1.150</span></div>
@@ -348,9 +380,9 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 
     <!-- HAMBURGUESAS -->
     <div class="cat-block" id="hamburguesas">
-      <div class="cat-title"><h3>Hamburguesas caseras</h3><span class="kicker">100% casero</span></div>
+      <div class="cat-title"><h3>Hamburguesas caseras</h3></div>
       <div class="grid">
-        <div class="item">
+        <div class="item featured">
           <div class="item-top"><span class="item-name">Hamburguesa XL Doble Carne</span><span class="item-price"><small>$</small>550</span></div>
           <p class="item-desc">Doble carne, cheddar, panceta, cebolla, tomate, papas rústicas y mayonesa.</p>
         </div>
@@ -367,7 +399,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 
     <!-- SANDWICH -->
     <div class="cat-block" id="sandwich">
-      <div class="cat-title"><h3>Sándwich calientes</h3><span class="kicker">Recién hechos</span></div>
+      <div class="cat-title"><h3>Sándwich calientes</h3></div>
       <div class="grid">
         <div class="item"><div class="item-top"><span class="item-name">Sándwich Caliente</span><span class="item-price"><small>$</small>350</span></div><p class="item-desc">El clásico jamón y queso caliente.</p></div>
         <div class="item"><div class="item-top"><span class="item-name">Caliente con Muzzarella</span><span class="item-price"><small>$</small>370</span></div><p class="item-desc">Sándwich caliente gratinado con muzzarella.</p></div>
@@ -377,7 +409,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 
     <!-- PASTAS -->
     <div class="cat-block" id="pastas">
-      <div class="cat-title"><h3>Pasta casera</h3><span class="kicker">Amasada en casa</span></div>
+      <div class="cat-title"><h3>Pasta casera</h3></div>
       <div class="grid">
         <div class="item">
           <div class="item-top"><span class="item-name">Tallarines Caseros</span><span class="item-price"><small>$</small>460</span></div>
@@ -396,7 +428,8 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 
     <!-- GRAMAJO -->
     <div class="cat-block" id="gramajo">
-      <div class="cat-title"><h3>Gramajo, chivitos &amp; fritas</h3><span class="kicker">Para arrasar</span></div>
+      <div class="cat-title"><h3>Gramajo, chivitos &amp; fritas</h3></div>
+      <p class="cat-note">El gramajo es un revuelto bien contundente de papas fritas con huevo y agregados. Para los que vienen con hambre en serio.</p>
       <div class="grid">
         <div class="item">
           <div class="item-top"><span class="item-name">Gramajo x1</span><span class="item-price"><small>$</small>550</span></div>
@@ -434,7 +467,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 
     <!-- BEBIDAS -->
     <div class="cat-block" id="bebidas">
-      <div class="cat-title"><h3>Bebidas</h3><span class="kicker">Para acompañar</span></div>
+      <div class="cat-title"><h3>Bebidas</h3></div>
       <div class="grid">
         <div class="item"><div class="item-top"><span class="item-name">Pepsi 1.5 lt</span><span class="item-price"><small>$</small>260</span></div></div>
         <div class="item"><div class="item-top"><span class="item-name">Pepsi Black 1.5 lt</span><span class="item-price"><small>$</small>260</span></div><p class="item-desc">Cero azúcares.</p></div>
@@ -457,13 +490,12 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 <section id="info" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Visitanos</span>
       <h2>Horarios &amp; <em>ubicación</em></h2>
     </div>
     <div class="info-grid">
       <!-- HOURS -->
       <div class="panel">
-        <div id="statusPill" class="status-pill status-closed" style="display:none"><span class="dot"></span><span id="statusText"></span></div>
+        <div id="statusPill" class="status-pill status-closed" style="visibility:hidden"><span class="dot"></span><span id="statusText">Consultá horarios</span></div>
         <h3><span class="ic">🕒</span> Horarios</h3>
         <div id="hours">
           <div class="hours-row" data-d="1"><span class="day">Lunes</span><span>11:00 – 00:00</span></div>
@@ -487,7 +519,11 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
         <div class="contact-links">
           <a class="clink" href="https://wa.me/59892379736?text=%C2%A1Hola%20IB%C4%92!%20Quiero%20hacer%20una%20reserva." target="_blank" rel="noopener">
             <span class="ci ci-wa"><svg class="svg-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.39.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg></span>
-            <span><span class="ct">Reservas &amp; pedidos</span><br><span class="cv">+598 92 379 736</span></span>
+            <span><span class="ct">WhatsApp · reservas y pedidos</span><br><span class="cv">+598 92 379 736</span></span>
+          </a>
+          <a class="clink" href="tel:+59892379736">
+            <span class="ci ci-phone"><svg class="svg-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z"/></svg></span>
+            <span><span class="ct">¿Preferís llamar?</span><br><span class="cv">+598 92 379 736</span></span>
           </a>
           <a class="clink" href="https://instagram.com/elibe.uy" target="_blank" rel="noopener">
             <span class="ci ci-ig"><svg class="svg-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.62c-3.15 0-3.5.01-4.74.07-1.14.05-1.76.24-2.17.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.17-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.14.24 1.76.4 2.17.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.17.4 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.14-.05 1.76-.24 2.17-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.17.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.14-.24-1.76-.4-2.17a3.6 3.6 0 0 0-.88-1.35 3.6 3.6 0 0 0-1.35-.88c-.41-.16-1.03-.35-2.17-.4-1.24-.06-1.59-.07-4.74-.07Zm0 2.76a5.3 5.3 0 1 0 0 10.6 5.3 5.3 0 0 0 0-10.6Zm0 8.74a3.44 3.44 0 1 1 0-6.88 3.44 3.44 0 0 1 0 6.88Zm5.5-8.94a1.24 1.24 0 1 0 0 2.48 1.24 1.24 0 0 0 0-2.48Z"/></svg></span>
@@ -509,12 +545,11 @@ footer{border-top:1px solid var(--line);padding:44px 0 40px;background:var(--bg)
 
 <!-- FINAL CTA -->
 <div class="finalcta">
-  <span class="eyebrow">¿Tenés hambre?</span>
-  <h2>Reservá tu <span>mesa</span></h2>
-  <p>Escribinos por WhatsApp y coordinamos tu reserva o tu pedido en minutos.</p>
+  <h2>¿Tenés hambre? Reservá tu <span>mesa</span></h2>
+  <p>Escribinos por WhatsApp y coordinamos tu reserva o tu pedido en minutos. También hacemos delivery y retiro por el local.</p>
   <a class="btn btn-wa" style="font-size:1.05rem;padding:17px 30px" href="https://wa.me/59892379736?text=%C2%A1Hola%20IB%C4%92!%20Quiero%20hacer%20una%20reserva." target="_blank" rel="noopener">
     <svg class="svg-ic" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm4.52 11.99c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.39.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.25 3.74.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
-    Reservar ahora
+    Reservar por WhatsApp
   </a>
 </div>
 
@@ -561,7 +596,7 @@ try{
   if(hourNow>=t.o) open=true;
   if(prev.c>24 && hourNow<(prev.c-24)) open=true;
   const pill=document.getElementById('statusPill'),txt=document.getElementById('statusText');
-  pill.style.display='inline-flex';
+  pill.style.visibility='visible';
   if(open){pill.className='status-pill status-open';txt.textContent='Abierto ahora';}
   else{pill.className='status-pill status-closed';txt.textContent='Cerrado ahora';}
 }catch(e){}
